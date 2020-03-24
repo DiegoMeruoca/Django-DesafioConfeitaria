@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+         <!-- Meta tag Obrigatória-->
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <title>Listagem de Bolos</title>
+    </head>
+    <body>
+        <h2 class="container bg-dark text-light p-3">Nossos Bolos:</h2>
+        <div>
+            {% for bolo in bolos %}
+                <div class="container bg-primary text-light p-1">
+                    <b>{{ bolo.nome }}</b>
+                </div>
+                <div class="container bg-dark text-light p-3">
+                    <b>Preço:</b> R$ {{ bolo.preco }}<!--Exibe o valor-->
+                    <br><b>Detalhes:</b> {{ bolo.detalhes }}<!--Exibe a observacao-->
+                </div>
+            {% endfor %}<!--Finaliza o for-->
+        </div>
+    </body>
+</html>

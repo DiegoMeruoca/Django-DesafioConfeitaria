@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+         <!-- Meta tag Obrigatória-->
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <title>Listagem de Bolos</title>
+    </head>
+    <body>
+                <div class="container bg-dark p-3 clearfix text-light">
+            <h2 class="float-left">Nossos Bolos:</h2>
+            <a  href="{% url 'url_cadastro' %}"><!--Cria um link
+            chamando a URL de cadastro-->
+                <button type="submit" class="btn btn-primary float-right">
+                    Novo Bolo
+                </button>
+            </a>
+        </div>
+        <div>
+        <div>
+            {% for bolo in bolos %}
+                <div class="container bg-primary text-light p-1">
+                    <b>{{ bolo.nome }}</b>
+                </div>
+                <div class="container bg-dark text-light p-3">
+                    <b>Preço:</b> R$ {{ bolo.preco }}<!--Exibe o valor-->
+                    <br><b>Detalhes:</b> {{ bolo.detalhes }}<!--Exibe a observacao-->
+                    <br>
+                    <a  href="{% url 'url_atualizar' bolo.id %}"><!--Cria um link
+                    chamando a URL e enviando o ID da transação atual-->
+                        <button type="submit" class="btn btn-primary">Editar</button>
+                    </a>
+                    <a  href="{% url 'url_deletar' bolo.id %}"><!--Cria um link
+                    chamando a URL e enviando o ID da transação atual-->
+                        <button type="submit" class="btn btn-danger">Deletar</button>
+                    </a>
+                </div>
+            {% endfor %}<!--Finaliza o for-->
+        </div>
+    </body>
+</html>
